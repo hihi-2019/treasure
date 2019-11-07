@@ -16,10 +16,68 @@ class Room extends React.Component {
     }
   }
 
-  render() {
-    if(this.props.match.params.direction) {
-      console.log(this.props.match.params.direction)
+  generateDoors = (selectedDoor) => {
+    // return console.log(selectedDoor)
+    
+
+
+    if (selectedDoor == 'up') {
+      this.setState({
+        roomData: {
+          up: 'hidden',
+          down: 'visible',
+          left: 'hidden',
+          right: 'hidden'
+        }
+      })
+      console.log(selectedDoor)
+    } else if (selectedDoor == 'down'){
+      this.setState({
+        roomData: {
+          up: 'visible',
+          down: 'hidden',
+          left: 'hidden',
+          right: 'hidden'
+        }
+      })
+      console.log(selectedDoor)
+    } else if (selectedDoor == 'left'){
+      this.setState({
+        roomData: {
+          up: 'hidden',
+          down: 'hidden',
+          left: 'hidden',
+          right: 'visible'
+        }
+      })
+      console.log(selectedDoor)
+    } else if (selectedDoor == 'right') {
+      this.setState({
+        roomData: {
+          up: 'hidden',
+          down: 'hidden',
+          left: 'visible',
+          right: 'hidden'
+        }
+      })
+      console.log(selectedDoor)
     }
+
+
+
+  }
+
+
+
+
+  render() {
+    // if(this.props.match.params.direction) {
+    //   let selectedDoor = this.props.match.params.direction
+
+    //   this.generateDoors(selectedDoor)
+
+    //   //console.log(this.props.match.params.direction)
+    // }
 
     return (
       <div>
@@ -29,7 +87,11 @@ class Room extends React.Component {
           <Door door='leftDoor' canSee={this.state.roomData.left} />
           <Door door='rightDoor' canSee={this.state.roomData.right} />
         </div>
-        <Controls buttonData={this.state.roomData} />
+        <Controls
+          {... this.props}
+          buttonData={this.state.roomData}
+          generateDoors={this.generateDoors}
+        />
       </div>
     )
   }

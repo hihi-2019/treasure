@@ -10,9 +10,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h1 className="title">Choose Your Own Adventure</h1>
         <Router>
           <Route exact path="/" component={Room}></Route>
-          <Route path='/:direction' component={Room}></Route>
+          {/* <Route path='/:direction' component={Room}></Route> */}
         </Router>
       </div>
     )

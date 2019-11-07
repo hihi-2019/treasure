@@ -11,26 +11,38 @@ class Controls extends React.Component {
     // console.log(this.props.buttonData)
     return (
       <div className='controlBox'>
-        <div className='classBox' >
+        <div className='classBox'>
           <Button
+            {...this.props}
             link='/up'
             canSee={this.props.buttonData.up}
             symbol='↑'
+            generateDoors={this.props.generateDoors}
+            direc='up'
           />
           <Button
+            {...this.props}
             link='/down'
             canSee={this.props.buttonData.down}
             symbol='↓'
+            generateDoors={this.props.generateDoors}
+            direc='down'
           />
           <Button
+            {...this.props}
             link='/left'
             canSee={this.props.buttonData.left}
             symbol='←'
+            generateDoors={this.props.generateDoors}
+            direc='left'
           />
           <Button
+            {...this.props}
             link='/right'
             canSee={this.props.buttonData.right}
             symbol='→'
+            generateDoors={this.props.generateDoors}
+            direc='right'
           />
         </div>
       </div>

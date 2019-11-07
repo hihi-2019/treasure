@@ -7,13 +7,15 @@ class Button extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    
 
     if (this.props.canSee == 'visible') {
       return (
-        <Link to={this.props.link}>
-          <button className="buttonStyle">{this.props.symbol}</button>
-        </Link>   
+        // <Link to={this.props.link}>
+          <button className="buttonStyle"  onClick={() => {
+            this.props.generateDoors(this.props.direc)
+          }}>{this.props.symbol}</button>
+        // </Link>   
       )
     } 
     else {

@@ -1,9 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
-import Room from './Room'
-import Controls from './Controls'
 
-class App extends React.Component {
+class Door extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -11,11 +9,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Room />
-        <Controls />
+        <h1>Door</h1>
       </div>
     )
   }
 }
 
-export default App
+export default Door

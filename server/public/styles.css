@@ -16,9 +16,22 @@ body {
   height: 10rem;
   margin: auto;
   margin-top: 4rem;
+  display: flex;
 }
 
-/* visibility: hidden; */
+.classBox {
+  display: flex;
+  padding: 3rem;
+  margin: auto;
+  text-align: center;  
+}
+
+.buttonStyle {
+  margin: 0.2rem;
+  height: 3rem;
+  width: 3rem;
+  font-size: 2rem;
+}
 
 .leftDoor {
   background-color: pink;

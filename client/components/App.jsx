@@ -1,7 +1,6 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import Room from './Room'
-import Controls from './Controls'
 
 class App extends React.Component {
   constructor(props) {
@@ -11,15 +10,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Room />
-        <Controls />
+        <Router>
+          <Route exact path="/" component={Room}></Route>
+          <Route path='/:direction' component={Room}></Route>
+        </Router>
       </div>
     )
   }
 }
 
- 
-
-  // router and route in this component (route links to room), and passes in the /room/:id
+// router and route in this component (route links to room), and passes in the /room/:id
 
 export default App

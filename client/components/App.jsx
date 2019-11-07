@@ -18,4 +18,8 @@ class App extends React.Component {
   }
 }
 
+ 
+
+  // router and route in this component (route links to room), and passes in the /room/:id
+
 export default App

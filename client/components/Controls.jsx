@@ -10,9 +10,16 @@ class Controls extends React.Component {
     return (
       <div className="controlBox">
         <h1>Controls</h1>
+
+
+        
       </div>
     )
   }
+
+  // link that returns path based on count : /board/{this.state.count}
+
+  //count happens in this component
 }
 
 export default Controls

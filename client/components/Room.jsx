@@ -12,26 +12,21 @@ class Room extends React.Component {
         down: 'visible',
         left: 'visible',
         right: 'visible'
-      }
+      },
     }
   }
 
   randomiseDoor = () => {
-
     //randomise here
-    let num = Math.floor(Math.random() * 2 )
+    let num = Math.floor(Math.random() * 2)
 
-    // if num = 0
-      // return 'hidden'
+    // if num = 0 return 'hidden'
     if (num == 0) return 'hidden'
-    
-    // if num = 1
-      // return 'visible'
-      else if (num == 1) return 'visible'
-    
+    // if num = 1 return 'visible'
+    else if (num == 1) return 'visible'
   }
 
-  generateDoors = (selectedDoor) => {    
+  doorSetting = selectedDoor => {
     if (selectedDoor == 'up') {
       this.setState({
         roomData: {
@@ -41,7 +36,7 @@ class Room extends React.Component {
           right: this.randomiseDoor()
         }
       })
-     } else if (selectedDoor == 'down'){
+    } else if (selectedDoor == 'down') {
       this.setState({
         roomData: {
           up: 'visible',
@@ -50,7 +45,7 @@ class Room extends React.Component {
           right: this.randomiseDoor()
         }
       })
-    } else if (selectedDoor == 'left'){
+    } else if (selectedDoor == 'left') {
       this.setState({
         roomData: {
           up: this.randomiseDoor(),
@@ -71,22 +66,29 @@ class Room extends React.Component {
     }
   }
 
+  generateDoors = selectedDoor => {
+
+    // set background to black
+
+    setTimeout(() => {
+      this.doorSetting(selectedDoor)
+      // set background to teal
+    }, 100)
 
 
+  }
 
   render() {
-
-
     return (
-      <div>
-        <div id='room'>
+      <div id='gameBox'>
+        <div id='room' className={this.state.gameBox.visibility}>
           <Door door='upDoor' canSee={this.state.roomData.up} />
           <Door door='downDoor' canSee={this.state.roomData.down} />
           <Door door='leftDoor' canSee={this.state.roomData.left} />
           <Door door='rightDoor' canSee={this.state.roomData.right} />
         </div>
         <Controls
-          {... this.props}
+          {...this.props}
           buttonData={this.state.roomData}
           generateDoors={this.generateDoors}
         />

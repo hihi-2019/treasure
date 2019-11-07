@@ -16,68 +16,66 @@ class Room extends React.Component {
     }
   }
 
-  generateDoors = (selectedDoor) => {
-    // return console.log(selectedDoor)
+  randomiseDoor = () => {
+
+    //randomise here
+    let num = Math.floor(Math.random() * 2 )
+
+    // if num = 0
+      // return 'hidden'
+    if (num == 0) return 'hidden'
     
+    // if num = 1
+      // return 'visible'
+      else if (num == 1) return 'visible'
+    
+  }
 
-
+  generateDoors = (selectedDoor) => {    
     if (selectedDoor == 'up') {
       this.setState({
         roomData: {
-          up: 'hidden',
+          up: this.randomiseDoor(),
           down: 'visible',
-          left: 'hidden',
-          right: 'hidden'
+          left: this.randomiseDoor(),
+          right: this.randomiseDoor()
         }
       })
-      console.log(selectedDoor)
-    } else if (selectedDoor == 'down'){
+     } else if (selectedDoor == 'down'){
       this.setState({
         roomData: {
           up: 'visible',
-          down: 'hidden',
-          left: 'hidden',
-          right: 'hidden'
+          down: this.randomiseDoor(),
+          left: this.randomiseDoor(),
+          right: this.randomiseDoor()
         }
       })
-      console.log(selectedDoor)
     } else if (selectedDoor == 'left'){
       this.setState({
         roomData: {
-          up: 'hidden',
-          down: 'hidden',
-          left: 'hidden',
+          up: this.randomiseDoor(),
+          down: this.randomiseDoor(),
+          left: this.randomiseDoor(),
           right: 'visible'
         }
       })
-      console.log(selectedDoor)
     } else if (selectedDoor == 'right') {
       this.setState({
         roomData: {
-          up: 'hidden',
-          down: 'hidden',
+          up: this.randomiseDoor(),
+          down: this.randomiseDoor(),
           left: 'visible',
-          right: 'hidden'
+          right: this.randomiseDoor()
         }
       })
-      console.log(selectedDoor)
     }
-
-
-
   }
 
 
 
 
   render() {
-    // if(this.props.match.params.direction) {
-    //   let selectedDoor = this.props.match.params.direction
 
-    //   this.generateDoors(selectedDoor)
-
-    //   //console.log(this.props.match.params.direction)
-    // }
 
     return (
       <div>

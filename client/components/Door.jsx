@@ -7,11 +7,17 @@ class Door extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Door</h1>
-      </div>
-    )
+      
+    if (this.props.canSee == 'visible') {
+      return(
+        <div className={this.props.door} style={{visibility: 'visible'}}></div>
+      )
+    }
+    else {
+      return(
+        <div className={this.props.door} style={{visibility: 'hidden'}}></div>
+      )
+    }
   }
 }
 

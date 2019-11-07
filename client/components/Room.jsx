@@ -5,16 +5,21 @@ import Door from './Door'
 class Room extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      up: "visible",
+      down: "hidden",
+      left: "visible",
+      right: "hidden"
+    }
   }
 
   render() {
     return (
-      <div>
-        <h1>Room</h1>
-        <Door />
-        <Door />
-        <Door />
-        <Door />
+      <div id='room'>
+        <Door door='upDoor' canSee={this.state.up } />
+        <Door door='downDoor' canSee={this.state.down } />
+        <Door door='leftDoor' canSee={this.state.left } />
+        <Door door='rightDoor' canSee={this.state.right } />
       </div>
     )
   }

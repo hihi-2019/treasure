@@ -8,7 +8,7 @@ class Controls extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="controlBox">
         <h1>Controls</h1>
       </div>
     )

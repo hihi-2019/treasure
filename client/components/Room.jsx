@@ -3,17 +3,15 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import Door from './Door'
 import Controls from './Controls'
 
-// import js data file here
-
 class Room extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       roomData: {
-        up: 'visible',
-        down: 'hidden',
+        up: 'hidden',
+        down: 'visible',
         left: 'visible',
-        right: 'hidden'
+        right: 'visible'
       }
     }
   }

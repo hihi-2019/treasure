@@ -8,7 +8,7 @@ class Room extends React.Component {
     super(props)
     this.state = {
       roomData: {
-        up: 'hidden',
+        up: 'visible',
         down: 'visible',
         left: 'visible',
         right: 'visible'
@@ -81,7 +81,7 @@ class Room extends React.Component {
   render() {
     return (
       <div id='gameBox'>
-        <div id='room' className={this.state.gameBox.visibility}>
+        <div id='room' >
           <Door door='upDoor' canSee={this.state.roomData.up} />
           <Door door='downDoor' canSee={this.state.roomData.down} />
           <Door door='leftDoor' canSee={this.state.roomData.left} />

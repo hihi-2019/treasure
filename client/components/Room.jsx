@@ -3,7 +3,15 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import Door from './Door'
 import Controls from './Controls'
 import Message from './Message'
+import Text from './Text'
 import { thisExpression } from '@babel/types'
+
+let messages = [
+  'Today the sun rose in the west',
+  'Soon you will need to make a choice. You will know when...',
+  'So close, yet so far away'
+]
+
 
 class Room extends React.Component {
   constructor(props) {
@@ -16,7 +24,9 @@ class Room extends React.Component {
         right: 'visible'
       },
       controlVisibility: 'isVisible',
-      scroll: true
+      scroll: true,
+      displayScrollMessage: false,
+      scrollMessage: ''
     }
 
   }
@@ -99,30 +109,53 @@ class Room extends React.Component {
       this.setState({
         controlVisibility: 'isVisible'
       })
-    }, 100)
-
-    
+    }, 100)   
 
 
   }
 
+  readScroll = () => {
+
+  
+    let randomscroll = Math.floor(Math.random() * 3)
+
+    //console.log(messages[randomscroll])
+
+    this.setState({
+      displayScrollMessage: true,
+      scrollMessage: messages[randomscroll]
+    })
+
+
+
+
+  }
+
+
+
+
   render() {
     return (
-      <div id='gameBox'>
-        <div id='room'>
-          <Door door='upDoor' canSee={this.state.roomData.up} />
-          <Door door='downDoor' canSee={this.state.roomData.down} />
-          <Door door='leftDoor' canSee={this.state.roomData.left} />
-          <Door door='rightDoor' canSee={this.state.roomData.right} />
-          {this.state.scroll && <Message/> }
+      <div>
+        <div id='gameBox'>
+          <div id='room'>
+            <Door door='upDoor' canSee={this.state.roomData.up} />
+            <Door door='downDoor' canSee={this.state.roomData.down} />
+            <Door door='leftDoor' canSee={this.state.roomData.left} />
+            <Door door='rightDoor' canSee={this.state.roomData.right} />
+            {this.state.scroll && <Message />}
+          </div>
+          <Controls
+            {...this.props}
+            buttonData={this.state.roomData}
+            generateDoors={this.generateDoors}
+            readScroll={this.readScroll}
+            visibility={this.state.controlVisibility}
+            showScroll={this.state.scroll}
+          />
         </div>
-        <Controls
-          {...this.props}
-          buttonData={this.state.roomData}
-          generateDoors={this.generateDoors}
-          visibility={this.state.controlVisibility}
-          showScroll={this.state.scroll}
-        />
+
+        {this.state.displayScrollMessage && <Text msg={this.state.scrollMessage}/>}
       </div>
     )
   }

@@ -49,6 +49,8 @@ class Controls extends React.Component {
             <Button
               symbol='?'
               canSee='visible'
+              func={this.props.readScroll}
+              direc=''
             />
           }
         </div>

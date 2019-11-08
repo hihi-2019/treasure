@@ -12,7 +12,7 @@ class Message extends React.Component {
   render() {
     return (
 
-      <div class="scroll"></div>
+      <div className="scroll"></div>
 
 
 

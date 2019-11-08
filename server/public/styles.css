@@ -10,8 +10,19 @@ body {
   font-size: 2rem;
 }
 
+.scroll {
+  background-image: url('./images/scroll.png');
+  background-repeat: no-repeat;
+  height: 4rem;
+  width: 4rem;
+  background-size: 4rem;
+  position: relative;
+  bottom: 2.5rem;
+  left: 12.5rem
+}
+
 #gameBox {
-  background-color: darkslategrey;;
+  background-color: darkslategrey;
   width:30rem;
   height: 43rem;
   margin: auto;

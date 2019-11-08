@@ -11,14 +11,14 @@ class Controls extends React.Component {
     // console.log(this.props.buttonData)
     return (
       <div className='controlBox' className={this.props.visibility}>
-        <p class='center'>Pick a Direction</p>
+        <p className='center'>Pick a Direction</p>
         <div className='classBox'>
           <Button
             {...this.props}
             link='/up'
             canSee={this.props.buttonData.up}
             symbol='↑'
-            generateDoors={this.props.generateDoors}
+            func={this.props.generateDoors}
             direc='up'
           />
           <Button
@@ -26,7 +26,7 @@ class Controls extends React.Component {
             link='/down'
             canSee={this.props.buttonData.down}
             symbol='↓'
-            generateDoors={this.props.generateDoors}
+            func={this.props.generateDoors}
             direc='down'
           />
           <Button
@@ -34,7 +34,7 @@ class Controls extends React.Component {
             link='/left'
             canSee={this.props.buttonData.left}
             symbol='←'
-            generateDoors={this.props.generateDoors}
+            func={this.props.generateDoors}
             direc='left'
           />
           <Button
@@ -42,9 +42,15 @@ class Controls extends React.Component {
             link='/right'
             canSee={this.props.buttonData.right}
             symbol='→'
-            generateDoors={this.props.generateDoors}
+            func={this.props.generateDoors}
             direc='right'
           />
+          {this.props.showScroll && 
+            <Button
+              symbol='?'
+              canSee='visible'
+            />
+          }
         </div>
       </div>
     )

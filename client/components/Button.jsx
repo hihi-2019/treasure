@@ -16,7 +16,7 @@ class Button extends React.Component {
           className='buttonStyle'
           
           onClick={() => {
-            this.props.generateDoors(this.props.direc)
+            this.props.func(this.props.direc)
           }}
         >
           {this.props.symbol}

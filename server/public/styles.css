@@ -3,6 +3,13 @@ body {
   padding-top: 1rem;
 }
 
+.center {
+  text-align: center;
+  margin: auto;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
 #gameBox {
   background-color: darkslategrey;;
   width:30rem;
@@ -11,7 +18,23 @@ body {
   padding: 3rem 4rem 4rem 4rem;
 }
 
+.isVisible {
+  background-color:  rgb(134, 99, 64);
+    width: 30rem;
+  height: 10rem;
+  margin: auto;
+  margin-top: 4rem;
+  display: flex;
+}
 
+.notVisible {
+  background-color:  darkslategrey;
+    width: 30rem;
+  height: 10rem;
+  margin: auto;
+  margin-top: 4rem;
+  display: flex;
+}
 
 #room {
   /* background-color: teal; */

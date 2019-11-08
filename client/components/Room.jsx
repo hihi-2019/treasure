@@ -13,7 +13,9 @@ class Room extends React.Component {
         left: 'visible',
         right: 'visible'
       },
+      controlVisibility: 'isVisible'
     }
+
   }
 
   randomiseDoor = () => {
@@ -68,12 +70,19 @@ class Room extends React.Component {
 
   generateDoors = selectedDoor => {
 
-    // set background to black
+    this.setState({
+      controlVisibility: 'notVisible'
+    })
 
     setTimeout(() => {
       this.doorSetting(selectedDoor)
-      // set background to teal
+
+      this.setState({
+        controlVisibility: 'isVisible'
+      })
     }, 100)
+
+    
 
 
   }
@@ -81,7 +90,7 @@ class Room extends React.Component {
   render() {
     return (
       <div id='gameBox'>
-        <div id='room' >
+        <div id='room'>
           <Door door='upDoor' canSee={this.state.roomData.up} />
           <Door door='downDoor' canSee={this.state.roomData.down} />
           <Door door='leftDoor' canSee={this.state.roomData.left} />
@@ -91,6 +100,7 @@ class Room extends React.Component {
           {...this.props}
           buttonData={this.state.roomData}
           generateDoors={this.generateDoors}
+          visibility={this.state.controlVisibility}
         />
       </div>
     )

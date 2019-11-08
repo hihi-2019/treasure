@@ -10,7 +10,8 @@ class Controls extends React.Component {
   render() {
     // console.log(this.props.buttonData)
     return (
-      <div className='controlBox'>
+      <div className='controlBox' className={this.props.visibility}>
+        <p class='center'>Pick a Direction</p>
         <div className='classBox'>
           <Button
             {...this.props}
@@ -48,7 +49,6 @@ class Controls extends React.Component {
       </div>
     )
   }
-
 }
 
 export default Controls

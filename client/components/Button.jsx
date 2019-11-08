@@ -14,6 +14,7 @@ class Button extends React.Component {
         // <Link to={this.props.link}>
         <button
           className='buttonStyle'
+          
           onClick={() => {
             this.props.generateDoors(this.props.direc)
           }}
